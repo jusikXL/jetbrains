@@ -1,0 +1,8 @@
+[package]
+name = "jetbrains"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sha256 = "1.6.0"
+
