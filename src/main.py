@@ -16,7 +16,6 @@ class BuggyHandler(BaseHTTPRequestHandler):
                 start = int(start) if start else 0
                 end = int(end) if end else len(self.data)
                 data = data[start:end]
-                print(f"{start}-{end}, {len(data)}")
             except Exception as err:
                 response = traceback.format_exc()
 
