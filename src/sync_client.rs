@@ -1,6 +1,6 @@
 use std::{
     error::Error,
-    io::{BufRead, BufReader, Read, Write},
+    io::{BufRead, BufReader, Read, Result as IoResult, Write},
     net::TcpStream,
     ops::Range,
 };
@@ -82,7 +82,7 @@ impl SyncClient {
         )
     }
 
-    fn read_response(stream: &mut TcpStream) -> Result<Vec<u8>, Box<dyn Error>> {
+    fn read_response(stream: &mut TcpStream) -> IoResult<Vec<u8>> {
         let mut reader = BufReader::new(stream);
 
         // skip headers
