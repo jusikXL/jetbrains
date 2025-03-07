@@ -18,7 +18,8 @@ The client retrieves data in 64 KB chunks to mitigate corruption caused by the g
   Fetches data chunk-by-chunk sequentially.  
 
 - **Asynchronous Client (`async_client.rs`)**
-  > (received your email just the moment I finished implementing it)
+  > received your email just the moment I finished implementing it
+  
   Fetches and processes multiple chunks concurrently for better performance.  
   - To test, uncomment the `tokio` dependency in `Cargo.toml`.  
   - Modify `main.rs` as instructed by the compiler.  
