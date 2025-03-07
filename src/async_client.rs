@@ -32,12 +32,11 @@ impl ServerConfig {
     }
 }
 
-pub struct Client {
+pub struct AsyncClient {
     server_config: ServerConfig,
     data_config: DataConfig,
 }
-
-impl Client {
+impl AsyncClient {
     const CHUNK_SIZE: u32 = 64 * KB;
 
     pub fn new(server_config: ServerConfig, data_config: DataConfig) -> Self {

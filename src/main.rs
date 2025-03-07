@@ -1,24 +1,25 @@
-mod async_client;
-// mod sync_client;
+// mod async_client;
+mod sync_client;
 
 use std::{
     io::{self},
     process,
 };
 
-use async_client::{Client, DataConfig, ServerConfig};
+use sync_client::{DataConfig, ServerConfig, SyncClient};
 
 const SERVER_ADDR: &str = "127.0.0.1:8080";
 
-// TODO: introduce concurrency
-
-#[tokio::main]
-async fn main() {
+// #[tokio::main]
+/* async */
+fn main() {
     let data_config = read_config();
 
-    let client = Client::new(ServerConfig::new(SERVER_ADDR.to_string()), data_config);
+    let client = SyncClient::new(ServerConfig::new(SERVER_ADDR.to_string()), data_config);
 
-    if let Err(e) = client.run().await {
+    if let Err(e) = client.run()
+    /* .await */
+    {
         eprintln!("Application error: {e}");
         process::exit(1);
     }
