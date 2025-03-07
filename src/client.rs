@@ -41,7 +41,7 @@ impl Client {
         }
     }
 
-    pub fn run(&self) -> Result<(), Box<dyn Error>> {
+    pub fn run(&self) -> Result<Vec<u8>, Box<dyn Error>> {
         let mut data: Vec<u8> = Vec::new(); // aggregated data
 
         let mut start = 0;
@@ -65,10 +65,14 @@ impl Client {
         }
 
         assert_eq!(data.len() as u32, len, "length mismatch");
-        assert_eq!(sha256::digest(data), self.data_config.hash, "hash mismatch");
+        assert_eq!(
+            sha256::digest(&data),
+            self.data_config.hash,
+            "hash mismatch"
+        );
 
         println!("Success");
-        Ok(())
+        Ok(data)
     }
 
     fn get_request(range: Range<u32>) -> String {
