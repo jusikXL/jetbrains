@@ -8,7 +8,7 @@ Run the client:
 ```sh
 cargo run
 ```  
-Follow the on-screen instructions.  
+Follow the terminal instructions.  
 
 ## Implementation  
 
@@ -22,4 +22,4 @@ The client retrieves data in 64 KB chunks to mitigate corruption caused by the g
   
   Fetches and processes multiple chunks concurrently for better performance.  
   - To test, uncomment the `tokio` dependency in `Cargo.toml`.  
-  - Modify `main.rs` as instructed by the compiler.  
+  - Modify `main.rs` as instructed by comments; use `async_client` instead of `sync_client`.
